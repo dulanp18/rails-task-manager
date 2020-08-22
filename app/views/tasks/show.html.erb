@@ -1,12 +1,17 @@
+<div class="container">
+  <h2 class="m-3"><%= @task.title %></h2>
+  <div class="m-2 card">
+    <div class="card-body bg-info">
+      <%= @task.details %>
+    </div>
+  </div>
+  <p class="m-2"><%= @task.completed ? "Completed" : "Not Completed" %></p>
 
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><input type="checkbox" name="<%= @task.id %>" value="true"><%= @task.completed %></p>
 
-
-<%= link_to "Edit Task",  edit_task_path(@task) %>
-<%= link_to "Delete Task",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-<%= link_to "Back To List",  tasks_path %>
+  <div><%= link_to "Edit Task",  edit_task_path(@task), :class => 'btn btn-primary m-2' %></div>
+  <div><%= link_to "Delete Task",
+              task_path(@task),
+              method: :delete,
+              data: { confirm: "Are you sure?" }, :class => 'btn btn-danger m-2' %></div>
+  <div><%= link_to "Back To List",  tasks_path, :class => 'btn btn-secondary m-2' %></div>
+</div>
